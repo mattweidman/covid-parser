@@ -45,6 +45,6 @@ DataRange
   }
   
 Aggregate
-  = name:("max" / "min") _ "(" _ range:DataRange _ ")" { 
+  = name:("max" / "min" / "sum" / "average") _ "(" _ range:DataRange _ ")" { 
       return new AggregateNode(name, range); 
     }
