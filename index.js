@@ -2,8 +2,16 @@ const input = document.getElementById("input");
 
 
 input.addEventListener('keyup', (event) => {
-    console.log(event.target.value);
+    const inputText = event.target.value;
+
+    var result;
+    try {
+        const ast = peg$parse(inputText);
+        result = ast.evaluate();
+    } catch (err) {
+        result = err;
+    }
 
     const output = document.getElementById("output");
-    output.textContent = event.target.value;
+    output.textContent = result;
 });
